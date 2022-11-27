@@ -20,6 +20,7 @@ html {
 }
 .container {
   background-color: orangered;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -61,6 +62,9 @@ button:active {
   transform: scale(0.98);
   box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.6);
 }
+.or {
+  text-decoration: none;
+}
 .use-accounts {
   display: flex;
   justify-content: space-between;
@@ -90,4 +94,21 @@ button:active {
   .container {
     background-color: orangered;
   }
+}
+
+.hide {
+  display: none;
+}
+.login-popup {
+  position: absolute;
+  height: 30rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1);
+  top: 0;
 }
