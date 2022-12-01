@@ -2,9 +2,8 @@ import Loginform from "./components/Loginform";
 
 function App() {
   return (
-    <div className="page">
-      <Loginform />
-    </div>
+    "div", {className: "page"}, <Loginform />
+
   );
 }
 
