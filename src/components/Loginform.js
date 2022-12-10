@@ -10,18 +10,19 @@ import {
   UseAccounts,
   google,
   icons,
+  clickMe,
   thankyou,
 } from "./LoginStyles";
 
-const Loginform = () => {
-  const [message, showPopup] = useState("hide");
+function Loginform() {
+  const [clicked, setClicked] = useState(false);
 
-  const popup = () => {
-    showPopup("login-popup");
+  function popup() {
+    setClicked(!clicked);
     setTimeout(() => {
-      showPopup("hide");
-    }, 3000);
-  };
+      setClicked(false);
+    }, 2000);
+  }
 
   return $(
     page,
@@ -32,11 +33,7 @@ const Loginform = () => {
       $(containerHeader, { className: "Header" }, "Login"),
       $(containerInput, { type: "email", placeholder: "username" }),
       $(containerInput, { type: "password", placeholder: "password" }),
-      $(
-        Button,
-        { className: "btn", message, onClick: () => popup() },
-        "Log In"
-      ),
+      $(Button, { className: "btn", onClick: () => popup() }, "Log In"),
       $(LoginUsing, { className: "or" }, "Or Login Using"),
       $(
         UseAccounts,
@@ -52,9 +49,13 @@ const Loginform = () => {
           $(icons, { className: "fa fa-address-book" })
         )
       ),
-      $(thankyou, { className: "thankyou" }, "Thank you for logging in")
+      $(
+        thankyou,
+        { className: "thankyou", clicked, onClick: () => popup() },
+        "Thank you for logging in"
+      )
     )
   );
-};
+}
 
 export default Loginform;

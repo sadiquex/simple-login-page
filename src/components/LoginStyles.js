@@ -10,7 +10,7 @@ export const page = styled.div`
 `;
 // container
 export const container = styled.div`
-  background-color: orangered;
+  background: rgb(252, 186, 2);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -88,9 +88,30 @@ export const icons = styled.i`
   border: none;
   gap: 20px;
 `;
-// message
+// click me
+export const clickMe = styled.div`
+  font-size: 20px;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  color: ${(props) => (props.clicked ? "red" : "blue")};
+  /* display: ${(props) => (props.clicked ? "none" : "block")}; */
+`;
+
+// popup message
 export const thankyou = styled.p`
   color: #fff;
   font-size: 20px;
   margin: 0.5rem 0;
+  background: rgba(0, 0, 0, 0.85);
+  height: 100%;
+  width: 100%;
+  z-index: 200;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  /* display */
+  display: ${(props) => (props.clicked ? "flex" : "none")};
+  justify-content: center;
+  align-items: center;
 `;
